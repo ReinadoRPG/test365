@@ -3,7 +3,7 @@
 const CONFIG = {
   serverAddress: "sd-br7.blazebr.com:25575", // troque se quiser
   // API de status (mcsrvstat.us) - NÃO mostra versão base, só players online.
-  statusApi: (addr) => `https://api.mcsrvstat.us/2/${encodeURIComponent(addr)}`,
+  statusApi: (addr) => `https://api.mcsrvstat.us/2/sd-br7.blazebr.com:25575`,
   // WhatsApp
   whatsappPhone: "14998199235",
   discord: "https://discord.gg/rGhKcPuD8Y",
