@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ReinadoRPG • Aeldrynn</title>
+  
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="ReinadoRPG" onerror="this.style.display='none'">
+          <div>
+            <div class="title">REINADORPG</div>
+            <div class="sub">Medieval RPG • Aeldrynn</div>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navegação">
+          <a class="pill" href="/">Início</a>
+          <a class="pill" href="/loja/">Loja</a>
+          <a class="pill" href="/regras/">Regras</a>
+          <a class="pill" href="/comandos/">Comandos</a>
+          <a class="pill" href="/wiki/">Wiki</a>
+        </nav>
+
+        <div class="right">
+          <div class="badge">👥 Online: <span id="onlineCount">—</span></div>
+          <a class="btn" id="btnDiscord" href="#" target="_blank" rel="noopener">Discord</a>
+          <a class="btn" id="btnZap" href="#" target="_blank" rel="noopener">Comunidade</a>
+          <button class="btn icon" id="openCart" title="Baú de compras">🧺 <span style="font-weight:900" id="cartCount">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+<section class="hero">
+  <h1>SOBRE O SERVIDOR / LORE</h1>
+  <p>
+    O continente de <b>Aeldrynn</b> é dividido em 5 grandes regiões, cada uma com sua história, cidades,
+    conflitos e criaturas próprias. No centro de tudo, um poder antigo desperta...
+  </p>
+  <div style="margin-top:14px;" class="social">
+    <a class="btn primary" href="/loja/">Ir pra Loja</a>
+    <a class="btn" href="/regras/">Ver Regras</a>
+    <a class="btn" href="/comandos/">Ver Comandos</a>
+    <a class="btn" href="/wiki/">Abrir Wiki</a>
+  </div>
+</section>
+
+<h2 class="sectionTitle">Links rápidos</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Discord</h3>
+    <p>Entre no Discord oficial pra suporte, avisos e eventos.</p>
+    <div style="margin-top:12px;"><a class="btn" id="btnDiscord2" href="https://discord.gg/rGhKcPuD8Y" target="_blank" rel="noopener">Abrir Discord</a></div>
+  </div>
+  <div class="card">
+    <h3>Comunidade do WhatsApp</h3>
+    <p>Canal/Comunidade pra avisos rápidos. (Você só precisa colar o link lá no CONFIG do app.js)</p>
+    <div style="margin-top:12px;"><a class="btn" id="btnZap2" href="#" target="_blank" rel="noopener">Abrir Comunidade</a></div>
+  </div>
+  <div class="card">
+    <h3>Status do servidor</h3>
+    <p>Jogadores online agora: <b><span id="onlineCountInline">—</span></b></p>
+    <p style="margin-top:8px; font-size:13px;" class="muted">A gente mostra só a quantidade online (sem versão base).</p>
+  </div>
+</div>
+
+<script>
+  // espelha o contador do header aqui também
+  window.addEventListener("DOMContentLoaded", ()=>{
+    const a = document.getElementById("onlineCount");
+    const b = document.getElementById("onlineCountInline");
+    if(a && b){
+      const sync = ()=> b.textContent = a.textContent;
+      sync();
+      const obs = new MutationObserver(sync);
+      obs.observe(a, { childList:true });
+    }
+    const wz = document.getElementById("btnZap");
+    const wz2 = document.getElementById("btnZap2");
+    if(wz && wz2) wz2.href = wz.href;
+  });
+</script>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerRow">
+        <div>© <span id="year"></span> ReinadoRPG. Todos os direitos reservados.</div>
+        <div class="footerLinks">
+          <a href="/termos/">Termos de Uso</a> • <a href="/privacidade/">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY + DRAWER -->
+  <div class="overlay" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Baú de Compras">
+    <div class="drawerHeader">
+      <h3>BAÚ DE COMPRAS</h3>
+      <button class="btn icon" id="closeCart" title="Fechar">✕</button>
+    </div>
+    <div class="drawerBody" id="cartBody"></div>
+    <div class="drawerFooter">
+      <div class="totalRow"><span>Total do apoio:</span> <b id="cartTotal">R$ 0,00</b></div>
+      <button class="btn primary" id="checkout">Finalizar compra</button>
+      <button class="btn" id="clearCart">Esvaziar baú</button>
+      <small>Ao finalizar, você será redirecionado pro WhatsApp com o pedido pronto.</small>
+    </div>
+  </aside>
+
+  <!-- TERMS MODAL -->
+  <div class="modal" id="termsModal">
+    <div class="overlay open" id="termsBackdrop"></div>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Termos de aquisição">
+      <div class="modalHead">
+        <h3>TERMOS DE AQUISIÇÃO</h3>
+        <button class="btn icon" id="closeTerms" title="Fechar">✕</button>
+      </div>
+      <p>
+        Antes de prosseguir para o WhatsApp, confirme que você leu e concorda com os
+        <a href="/termos/" style="text-decoration:underline; text-underline-offset:3px;">Termos de Uso</a>
+        do ReinadoRPG.
+      </p>
+
+      <div class="checkRow">
+        <input type="checkbox" id="acceptTerms" />
+        <label for="acceptTerms">
+          Eu aceito os termos de uso e entendo que as aquisições são doações para a manutenção do reino.
+        </label>
+      </div>
+
+      <div class="actionsRow">
+        <button class="btn primary" id="confirmWhats" disabled>Confirmar e ir para WhatsApp</button>
+        <button class="btn" onclick="document.getElementById('closeTerms').click()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
