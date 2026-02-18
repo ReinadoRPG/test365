@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacidade • ReinadoRPG</title>
+  
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="ReinadoRPG" onerror="this.style.display='none'">
+          <div>
+            <div class="title">REINADORPG</div>
+            <div class="sub">Medieval RPG • Aeldrynn</div>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navegação">
+          <a class="pill" href="/">Início</a>
+          <a class="pill" href="/loja/">Loja</a>
+          <a class="pill" href="/regras/">Regras</a>
+          <a class="pill" href="/comandos/">Comandos</a>
+          <a class="pill" href="/wiki/">Wiki</a>
+        </nav>
+
+        <div class="right">
+          <div class="badge">👥 Online: <span id="onlineCount">—</span></div>
+          <a class="btn" id="btnDiscord" href="#" target="_blank" rel="noopener">Discord</a>
+          <a class="btn" id="btnZap" href="#" target="_blank" rel="noopener">Comunidade</a>
+          <button class="btn icon" id="openCart" title="Baú de compras">🧺 <span style="font-weight:900" id="cartCount">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+<section class="hero">
+  <h1>PRIVACIDADE</h1>
+  <p>O básico pra você ficar resguardado.</p>
+</section>
+
+<div class="card" style="margin-top:14px;">
+  <h3>O que coletamos</h3>
+  <p>Podemos receber seu nick e mensagens do pedido via WhatsApp (apenas para processar sua solicitação).</p>
+
+  <h3 style="margin-top:16px;">Como usamos</h3>
+  <p>Usamos os dados somente para suporte, entrega de benefícios e comunicação relacionada ao servidor.</p>
+
+  <h3 style="margin-top:16px;">Compartilhamento</h3>
+  <p>Não vendemos nem compartilhamos seus dados com terceiros, exceto quando exigido por lei.</p>
+
+  <h3 style="margin-top:16px;">Contato</h3>
+  <p>Para dúvidas, fale com a staff no Discord.</p>
+</div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerRow">
+        <div>© <span id="year"></span> ReinadoRPG. Todos os direitos reservados.</div>
+        <div class="footerLinks">
+          <a href="/termos/">Termos de Uso</a> • <a href="/privacidade/">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY + DRAWER -->
+  <div class="overlay" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Baú de Compras">
+    <div class="drawerHeader">
+      <h3>BAÚ DE COMPRAS</h3>
+      <button class="btn icon" id="closeCart" title="Fechar">✕</button>
+    </div>
+    <div class="drawerBody" id="cartBody"></div>
+    <div class="drawerFooter">
+      <div class="totalRow"><span>Total do apoio:</span> <b id="cartTotal">R$ 0,00</b></div>
+      <button class="btn primary" id="checkout">Finalizar compra</button>
+      <button class="btn" id="clearCart">Esvaziar baú</button>
+      <small>Ao finalizar, você será redirecionado pro WhatsApp com o pedido pronto.</small>
+    </div>
+  </aside>
+
+  <!-- TERMS MODAL -->
+  <div class="modal" id="termsModal">
+    <div class="overlay open" id="termsBackdrop"></div>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Termos de aquisição">
+      <div class="modalHead">
+        <h3>TERMOS DE AQUISIÇÃO</h3>
+        <button class="btn icon" id="closeTerms" title="Fechar">✕</button>
+      </div>
+      <p>
+        Antes de prosseguir para o WhatsApp, confirme que você leu e concorda com os
+        <a href="/termos/" style="text-decoration:underline; text-underline-offset:3px;">Termos de Uso</a>
+        do ReinadoRPG.
+      </p>
+
+      <div class="checkRow">
+        <input type="checkbox" id="acceptTerms" />
+        <label for="acceptTerms">
+          Eu aceito os termos de uso e entendo que as aquisições são doações para a manutenção do reino.
+        </label>
+      </div>
+
+      <div class="actionsRow">
+        <button class="btn primary" id="confirmWhats" disabled>Confirmar e ir para WhatsApp</button>
+        <button class="btn" onclick="document.getElementById('closeTerms').click()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loja • ReinadoRPG</title>
+  
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="ReinadoRPG" onerror="this.style.display='none'">
+          <div>
+            <div class="title">REINADORPG</div>
+            <div class="sub">Medieval RPG • Aeldrynn</div>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navegação">
+          <a class="pill" href="/">Início</a>
+          <a class="pill" href="/loja/">Loja</a>
+          <a class="pill" href="/regras/">Regras</a>
+          <a class="pill" href="/comandos/">Comandos</a>
+          <a class="pill" href="/wiki/">Wiki</a>
+        </nav>
+
+        <div class="right">
+          <div class="badge">👥 Online: <span id="onlineCount">—</span></div>
+          <a class="btn" id="btnDiscord" href="#" target="_blank" rel="noopener">Discord</a>
+          <a class="btn" id="btnZap" href="#" target="_blank" rel="noopener">Comunidade</a>
+          <button class="btn icon" id="openCart" title="Baú de compras">🧺 <span style="font-weight:900" id="cartCount">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+<section class="hero">
+  <h1>LOJA REINADORPG</h1>
+  <p>Adquira itens exclusivos e apoie o servidor. Adicione os itens no baú e finalize sua compra pelo WhatsApp.</p>
+</section>
+
+<h2 class="sectionTitle">Produtos</h2>
+<div class="storeGrid">
+  <div class="product">
+    <div class="tag">Popular</div>
+    <div class="name">Desbanimento</div>
+    <div class="desc">Remove seu banimento e volta a jogar no servidor.</div>
+    <div class="row">
+      <div class="price">R$ 15,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'desban', name:'Desbanimento', short:'Apoio ao servidor', price:15.00})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Popular</div>
+    <div class="name">VIP - Cavaleiro do Futuro</div>
+    <div class="desc">Passe VIP com vantagens e cosméticos. (ajuste a descrição quando quiser)</div>
+    <div class="row">
+      <div class="price">R$ 50,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'vip_cf', name:'VIP - Cavaleiro do Futuro', short:'Passe VIP', price:50.00})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Coins</div>
+    <div class="name"><span class="moe">ᴍᴏᴇᴅᴀs</span> • 100 BronzeCoins</div>
+    <div class="desc">Pacote inicial de moedas do reino.</div>
+    <div class="row">
+      <div class="price">R$ 5,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'bc_100', name:'100 BronzeCoins', short:'Moedas do reino', price:5.00})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Coins</div>
+    <div class="name"><span class="moe">ᴍᴏᴇᴅᴀs</span> • 574 BronzeCoins</div>
+    <div class="desc">Pacote médio de moedas com bônus incluso.</div>
+    <div class="row">
+      <div class="price">R$ 23,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'bc_574', name:'574 BronzeCoins', short:'Moedas do reino', price:23.00})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Coins</div>
+    <div class="name"><span class="moe">ᴍᴏᴇᴅᴀs</span> • 1050 BronzeCoins</div>
+    <div class="desc">Pacote grande de moedas: melhor custo-benefício.</div>
+    <div class="row">
+      <div class="price">R$ 46,90</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'bc_1050', name:'1050 BronzeCoins', short:'Moedas do reino', price:46.90})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Coins</div>
+    <div class="name"><span class="moe">ᴍᴏᴇᴅᴀs</span> • 2432 BronzeCoins</div>
+    <div class="desc">Mega pacote: pra quem quer dominar o reino.</div>
+    <div class="row">
+      <div class="price">R$ 120,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'bc_2432', name:'2432 BronzeCoins', short:'Moedas do reino', price:120.00})">+ Adicionar</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="tag">Coins</div>
+    <div class="name"><span class="moe">ᴍᴏᴇᴅᴀs</span> • 5000 BronzeCoins</div>
+    <div class="desc">Pacote supremo. Moedas suficientes pra virar lenda.</div>
+    <div class="row">
+      <div class="price">R$ 345,00</div>
+      <button class="btn" onclick="window.__rrpg.addToCart({id:'bc_5000', name:'5000 BronzeCoins', short:'Moedas do reino', price:345.00})">+ Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:14px;">
+  <small>
+    Ao realizar uma compra, você concorda com nossos
+    <a href="/termos/" style="text-decoration:underline; text-underline-offset:3px;">Termos de Uso</a>
+    e
+    <a href="/privacidade/" style="text-decoration:underline; text-underline-offset:3px;">Política de Privacidade</a>.
+  </small>
+</div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerRow">
+        <div>© <span id="year"></span> ReinadoRPG. Todos os direitos reservados.</div>
+        <div class="footerLinks">
+          <a href="/termos/">Termos de Uso</a> • <a href="/privacidade/">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY + DRAWER -->
+  <div class="overlay" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Baú de Compras">
+    <div class="drawerHeader">
+      <h3>BAÚ DE COMPRAS</h3>
+      <button class="btn icon" id="closeCart" title="Fechar">✕</button>
+    </div>
+    <div class="drawerBody" id="cartBody"></div>
+    <div class="drawerFooter">
+      <div class="totalRow"><span>Total do apoio:</span> <b id="cartTotal">R$ 0,00</b></div>
+      <button class="btn primary" id="checkout">Finalizar compra</button>
+      <button class="btn" id="clearCart">Esvaziar baú</button>
+      <small>Ao finalizar, você será redirecionado pro WhatsApp com o pedido pronto.</small>
+    </div>
+  </aside>
+
+  <!-- TERMS MODAL -->
+  <div class="modal" id="termsModal">
+    <div class="overlay open" id="termsBackdrop"></div>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Termos de aquisição">
+      <div class="modalHead">
+        <h3>TERMOS DE AQUISIÇÃO</h3>
+        <button class="btn icon" id="closeTerms" title="Fechar">✕</button>
+      </div>
+      <p>
+        Antes de prosseguir para o WhatsApp, confirme que você leu e concorda com os
+        <a href="/termos/" style="text-decoration:underline; text-underline-offset:3px;">Termos de Uso</a>
+        do ReinadoRPG.
+      </p>
+
+      <div class="checkRow">
+        <input type="checkbox" id="acceptTerms" />
+        <label for="acceptTerms">
+          Eu aceito os termos de uso e entendo que as aquisições são doações para a manutenção do reino.
+        </label>
+      </div>
+
+      <div class="actionsRow">
+        <button class="btn primary" id="confirmWhats" disabled>Confirmar e ir para WhatsApp</button>
+        <button class="btn" onclick="document.getElementById('closeTerms').click()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

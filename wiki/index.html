@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wiki • ReinadoRPG</title>
+  
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">
+          <img src="/assets/logo.png" alt="ReinadoRPG" onerror="this.style.display='none'">
+          <div>
+            <div class="title">REINADORPG</div>
+            <div class="sub">Medieval RPG • Aeldrynn</div>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navegação">
+          <a class="pill" href="/">Início</a>
+          <a class="pill" href="/loja/">Loja</a>
+          <a class="pill" href="/regras/">Regras</a>
+          <a class="pill" href="/comandos/">Comandos</a>
+          <a class="pill" href="/wiki/">Wiki</a>
+        </nav>
+
+        <div class="right">
+          <div class="badge">👥 Online: <span id="onlineCount">—</span></div>
+          <a class="btn" id="btnDiscord" href="#" target="_blank" rel="noopener">Discord</a>
+          <a class="btn" id="btnZap" href="#" target="_blank" rel="noopener">Comunidade</a>
+          <button class="btn icon" id="openCart" title="Baú de compras">🧺 <span style="font-weight:900" id="cartCount">0</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+<div class="wikiWrap">
+  <div class="wikiTop">
+    <div>
+      <div class="title">Bem-vindo à Wiki do ReinadoRPG!</div>
+      <div class="muted">Guia oficial pra todo mundo que quer explorar Aeldrynn sem se perder kkk</div>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <span class="wikiChip">🔎 Busca</span>
+      <a class="btn" href="/" style="height:36px;">Voltar pro Site</a>
+    </div>
+  </div>
+
+  <div class="wikiBody">
+    <aside class="wikiSide">
+      <div class="groupTitle">FAQ</div>
+      <a href="#conectar">Como conectar</a>
+      <a href="#perguntas">Perguntas frequentes</a>
+
+      <div class="groupTitle">Comunidade</div>
+      <a href="#regras">Regras</a>
+      <a href="#comandos">Comandos</a>
+      <a href="#loja">Loja</a>
+    </aside>
+
+    <section class="wikiMain">
+      <h2 id="conectar">💚 Conecte-se ao ReinadoRPG</h2>
+      <p><b>IP:</b> reinadorpg.com.br</p>
+      <p><b>Porta Bedrock:</b> (coloque aqui se usar Geyser)</p>
+
+      <h2 style="margin-top:22px;">🌍 Links úteis</h2>
+      <p>
+        • <b>Discord:</b> <a href="https://discord.gg/rGhKcPuD8Y" target="_blank" rel="noopener">discord.gg/rGhKcPuD8Y</a><br>
+        • <b>Comunidade WhatsApp:</b> (cole no CONFIG do site)<br>
+        • <b>Site:</b> reinadorpg.com.br
+      </p>
+
+      <h2 id="perguntas" style="margin-top:22px;">💬 Precisa de ajuda?</h2>
+      <p>
+        Nossa equipe está disponível no Discord pra responder dúvidas, resolver problemas e deixar a experiência lisinha.
+      </p>
+
+      <h2 id="regras" style="margin-top:22px;">📜 Regras</h2>
+      <p>Veja a página: <a href="/regras/">reinadorpg.com.br/regras</a></p>
+
+      <h2 id="comandos" style="margin-top:22px;">⌨️ Comandos</h2>
+      <p>Veja a página: <a href="/comandos/">reinadorpg.com.br/comandos</a></p>
+
+      <h2 id="loja" style="margin-top:22px;">🧺 Loja</h2>
+      <p>Veja a página: <a href="/loja/">reinadorpg.com.br/loja</a></p>
+    </section>
+  </div>
+</div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footerRow">
+        <div>© <span id="year"></span> ReinadoRPG. Todos os direitos reservados.</div>
+        <div class="footerLinks">
+          <a href="/termos/">Termos de Uso</a> • <a href="/privacidade/">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART OVERLAY + DRAWER -->
+  <div class="overlay" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Baú de Compras">
+    <div class="drawerHeader">
+      <h3>BAÚ DE COMPRAS</h3>
+      <button class="btn icon" id="closeCart" title="Fechar">✕</button>
+    </div>
+    <div class="drawerBody" id="cartBody"></div>
+    <div class="drawerFooter">
+      <div class="totalRow"><span>Total do apoio:</span> <b id="cartTotal">R$ 0,00</b></div>
+      <button class="btn primary" id="checkout">Finalizar compra</button>
+      <button class="btn" id="clearCart">Esvaziar baú</button>
+      <small>Ao finalizar, você será redirecionado pro WhatsApp com o pedido pronto.</small>
+    </div>
+  </aside>
+
+  <!-- TERMS MODAL -->
+  <div class="modal" id="termsModal">
+    <div class="overlay open" id="termsBackdrop"></div>
+    <div class="modalCard" role="dialog" aria-modal="true" aria-label="Termos de aquisição">
+      <div class="modalHead">
+        <h3>TERMOS DE AQUISIÇÃO</h3>
+        <button class="btn icon" id="closeTerms" title="Fechar">✕</button>
+      </div>
+      <p>
+        Antes de prosseguir para o WhatsApp, confirme que você leu e concorda com os
+        <a href="/termos/" style="text-decoration:underline; text-underline-offset:3px;">Termos de Uso</a>
+        do ReinadoRPG.
+      </p>
+
+      <div class="checkRow">
+        <input type="checkbox" id="acceptTerms" />
+        <label for="acceptTerms">
+          Eu aceito os termos de uso e entendo que as aquisições são doações para a manutenção do reino.
+        </label>
+      </div>
+
+      <div class="actionsRow">
+        <button class="btn primary" id="confirmWhats" disabled>Confirmar e ir para WhatsApp</button>
+        <button class="btn" onclick="document.getElementById('closeTerms').click()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
