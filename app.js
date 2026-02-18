@@ -1,14 +1,14 @@
 
 /** ====== CONFIG ====== */
 const CONFIG = {
-  serverAddress: "reinadorpg.com.br", // troque se quiser
+  serverAddress: "sd-br7.blazebr.com:25575", // troque se quiser
   // API de status (mcsrvstat.us) - NÃO mostra versão base, só players online.
   statusApi: (addr) => `https://api.mcsrvstat.us/2/${encodeURIComponent(addr)}`,
   // WhatsApp
   whatsappPhone: "14998199235",
   discord: "https://discord.gg/rGhKcPuD8Y",
   // link comunidade (VOCÊ PRECISA COLOCAR)
-  whatsappCommunity: "COLOQUE_SEU_LINK_DA_COMUNIDADE_AQUI"
+  whatsappCommunity: "https://chat.whatsapp.com/GUggniyiQjSHgqJDEtUZyd"
 };
 
 /** ====== HELPERS ====== */
@@ -189,8 +189,31 @@ function initCartUi(){
 /** Expose small API for inline buttons */
 window.__rrpg = { addToCart, changeQty };
 
+
+/** ====== "FONTE" SMALLCAPS (unicode) ====== */
+const __SC_MAP = {
+  "a":"ᴀ","b":"ʙ","c":"ᴄ","d":"ᴅ","e":"ᴇ","f":"ғ","g":"ɢ","h":"ʜ","i":"ɪ","j":"ᴊ","k":"ᴋ","l":"ʟ","m":"ᴍ","n":"ɴ","o":"ᴏ","p":"ᴘ","q":"ǫ","r":"ʀ","s":"s","t":"ᴛ","u":"ᴜ","v":"ᴠ","w":"ᴡ","x":"x","y":"ʏ","z":"ᴢ",
+  "A":"ᴀ","B":"ʙ","C":"ᴄ","D":"ᴅ","E":"ᴇ","F":"ғ","G":"ɢ","H":"ʜ","I":"ɪ","J":"ᴊ","K":"ᴋ","L":"ʟ","M":"ᴍ","N":"ɴ","O":"ᴏ","P":"ᴘ","Q":"ǫ","R":"ʀ","S":"s","T":"ᴛ","U":"ᴜ","V":"ᴠ","W":"ᴡ","X":"x","Y":"ʏ","Z":"ᴢ"
+};
+function toSmallcaps(str){
+  return String(str).split("").map(ch => __SC_MAP[ch] ?? ch).join("");
+}
+function applySmallcaps(){
+  // aplica em títulos, navegação e botões (pra não destruir textos longos)
+  const selectors = ["h1","h2","h3",".pill",".btn",".sectionTitle",".drawerHeader h3",".modalHead h3",".brand .title"];
+  selectors.forEach(sel=>{
+    document.querySelectorAll(sel).forEach(el=>{
+      if(el.dataset.scDone === "1") return;
+      const t = el.textContent;
+      el.textContent = toSmallcaps(t);
+      el.dataset.scDone = "1";
+    });
+  });
+}
+
 window.addEventListener("DOMContentLoaded", ()=>{
   initNavActive();
+  applySmallcaps();
   initFooter();
   initSocial();
   initCartUi();
